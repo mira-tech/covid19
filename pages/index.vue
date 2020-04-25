@@ -16,7 +16,9 @@
       <confirmed-cases-details-card />
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
+      <!--
       <telephone-advisory-reports-number-card />
+      -->
       <tested-number-card />
       <!--
       <confirmed-cases-details-card />
