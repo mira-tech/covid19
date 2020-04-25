@@ -56,8 +56,8 @@ export default Vue.extend({
     ConfirmedCasesDetailsCard,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
-    TestedNumberCard,
-    TelephoneAdvisoryReportsNumberCard
+    TestedNumberCard
+    // TelephoneAdvisoryReportsNumberCard
     // ConsultationDeskReportsNumberCard,
     // MetroCard,
     // AgencyCard
