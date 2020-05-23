@@ -62,6 +62,22 @@ link_kanja = urljoin(url, tag_kanja.get("href"))
 
 df_kanja = pd.read_excel(link_kanja, index_col="番号", header=1, skipfooter=2)
 
+#再陽生患者の暫定的対応
+import numpy as np 
+re_indexs = np.where(df_kanja.index.isnull())[0]
+tmp_posi_list = df_kanja["陽性判明日"].tolist()
+tmp_disc_list = df_kanja["退院･退所日"].tolist()
+for index in re_indexs:
+    tmp_posi_list[index-1] = tmp_posi_list[index]
+    tmp_disc_list[index-1] = tmp_disc_list[index]
+
+df_kanja["陽性判明日"] = tmp_posi_list
+df_kanja["退院･退所日"] = tmp_disc_list
+df_kanja = df_kanja.dropna(subset=["年代"])
+
+
+
+
 df_kanja["陽性判明日"] = df_kanja["陽性判明日"].apply(
     lambda date: pd.to_datetime(date, unit="D", origin=pd.Timestamp("1899/12/30"))
 )
