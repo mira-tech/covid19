@@ -60,7 +60,7 @@ tag_kanja = soup.find("a", text=re.compile("^栃木県における新型コロ�
 
 link_kanja = urljoin(url, tag_kanja.get("href"))
 
-df_kanja = pd.read_excel(link_kanja, index_col="番号", header=1, skipfooter=2)
+df_kanja = pd.read_excel(link_kanja, index_col="番号", header=1, skipfooter=1)
 
 #再陽生患者の暫定的対応
 import numpy as np 
